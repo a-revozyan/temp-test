@@ -1,0 +1,517 @@
+<?php
+
+namespace common\models;
+
+use common\helpers\DateHelper;
+use common\jobs\NotifyBridgeCompanyJob;
+use common\services\SMSService;
+use common\services\TelegramService;
+use Yii;
+use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
+
+/**
+ * This is the model class for table "accident".
+ *
+ * @property int $id
+ * @property int $partner_id
+ * @property string $begin_date
+ * @property string $end_date
+ * @property string|null $insurer_name
+ * @property string $insurer_birthday
+ * @property string $insurer_passport_file
+ * @property string $insurer_passport_series
+ * @property string $insurer_passport_number
+ * @property string $insurer_phone
+ * @property string|null $insurer_email
+ * @property string $address_delivery
+ * @property float $insurance_amount
+ * @property float $amount_uzs
+ * @property float|null $amount_usd
+ * @property int|null $trans_id
+ * @property int|null $program_id
+ * @property int $created_at
+ * @property int $status
+ * @property bool|null $viewed
+ * @property int|null $policy_order
+ * @property string|null $policy_number
+ * @property int $promo_id
+ * @property float $promo_percent
+ * @property float $promo_amount
+ * @property string|null $policy_pdf_url
+ * @property integer|null $order_id_in_gross
+ * @property integer|null $f_user_id
+ * @property boolean|null $owner_with_accident
+ * @property integer|null $osago_id
+ * @property string|null $payed_date
+ * @property string|null $insurer_pinfl
+ *
+ * @property Partner $partner
+ * @property Transaction $trans
+ * @property AccidentPartnerProgram $program
+ * @property User $fUser
+ * @property Osago $osago
+ * @property AccidentInsurer[] $accidentInsurers
+ */
+class Accident extends \yii\db\ActiveRecord
+{
+    public $insurer_count;
+    public $passFile;
+    public $promo_code;
+
+    const STATUS = [
+        'created' => 0,
+        'payed' => 1,
+        'waiting_for_policy' => 2,
+        'received_policy' => 3,
+        'canceled' => 4,
+    ];
+
+    const DEFAULT_INSURANCE_AMOUNT = 5000000;
+    const DEFAULT_PROGRAM_ID = 8;
+
+    const DEFAULT_DOC_TYPE_ID = 4;
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
+        return 'accident';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['partner_id', 'insurer_name', 'insurer_birthday', 'insurer_phone', 'insurance_amount', 'amount_uzs', 'amount_usd', 'created_at', 'status', 'viewed', 'insurer_passport_series', 'insurer_passport_number', 'policy_pdf_url', 'order_id_in_gross', 'f_user_id', 'owner_with_accident', 'osago_id', 'comment'], 'safe'],
+            [['partner_id', 'trans_id', 'created_at', 'status', 'policy_order'], 'default', 'value' => null],
+            [['partner_id', 'trans_id', 'created_at', 'status', 'policy_order', 'insurer_count', 'program_id', 'promo_id', 'reason_id'], 'integer'],
+            [['insurer_birthday', 'begin_date', 'end_date'], 'safe'],
+            [['insurance_amount', 'amount_uzs', 'amount_usd', 'promo_percent', 'promo_amount'], 'number'],
+            [['passFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, pdf, JPEG'],
+            [['viewed'], 'boolean'],
+            [['insurer_name', 'insurer_passport_file', 'insurer_phone', 'insurer_email', 'address_delivery', 'policy_number', 'insurer_passport_series', 'insurer_passport_number', 'promo_code', 'insurer_pinfl'], 'string', 'max' => 255],
+            [['partner_id'], 'exist', 'skipOnError' => true, 'targetClass' => Partner::className(), 'targetAttribute' => ['partner_id' => 'id']],
+            [['trans_id'], 'exist', 'skipOnError' => true, 'targetClass' => Transaction::className(), 'targetAttribute' => ['trans_id' => 'id']],
+        ];
+    }
+
+    public function uploadPass()
+    {
+        if ($this->validate()) {
+            $this->passFile->saveAs('uploads/passport_files/accident/' . $this->insurer_passport_file);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'partner_id' => 'Partner ID',
+            'insurer_name' => 'Insurer Name',
+            'insurer_birthday' => 'Insurer Birthday',
+            'insurer_passport_file' => 'Insurer Passport File',
+            'insurer_phone' => 'Insurer Phone',
+            'insurer_email' => 'Insurer Email',
+            'address_delivery' => 'Address Delivery',
+            'insurance_amount' => 'Insurance Amount',
+            'amount_uzs' => 'Amount Uzs',
+            'amount_usd' => 'Amount Usd',
+            'trans_id' => 'Trans ID',
+            'created_at' => 'Created At',
+            'status' => 'Status',
+            'viewed' => 'Viewed',
+            'policy_order' => 'Policy Order',
+            'policy_number' => 'Policy Number',
+        ];
+    }
+
+    /**
+     * Gets query for [[Partner]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPartner()
+    {
+        return $this->hasOne(Partner::className(), ['id' => 'partner_id']);
+    }
+
+    /**
+     * Gets query for [[Trans]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTrans()
+    {
+        return $this->hasOne(Transaction::className(), ['id' => 'trans_id']);
+    }
+
+    public function getProgram()
+    {
+        return $this->hasOne(AccidentPartnerProgram::className(), ['id' => 'program_id']);
+    }
+
+    public function getFUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'f_user_id']);
+    }
+
+    public function getOsago()
+    {
+        return $this->hasOne(Osago::className(), ['id' => 'osago_id']);
+    }
+
+    /**
+     * Gets query for [[AccidentInsurers]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAccidentInsurers()
+    {
+        return $this->hasMany(AccidentInsurer::className(), ['accident_id' => 'id']);
+    }
+
+    public function getReason()
+    {
+        return $this->hasOne(Reason::className(), ['id' => 'reason_id']);
+    }
+
+    public function setGrossPolicyNumber() {
+        if($this->trans->status == 2) {
+            $last_order = self::find()->where(['partner_id' => 1])->max("policy_order");
+
+            if(is_null($last_order)) {
+                $last_order = 0;
+            } 
+
+            $this->policy_number = 'NKA ';
+
+            $this->policy_order = $last_order + 1;
+
+            $length = strlen($this->policy_order);
+            
+            if($length < 7) {
+                for($i = 0; $i < 7-$length; $i++) {
+                    $this->policy_number .= '0';
+                }
+                $this->policy_number .= $this->policy_order;
+            } else {
+                $this->policy_number = $this->policy_order;
+            }
+            $this->save();      
+        }  
+    }
+
+    public function create_accident_in_partner_system(Accident $accident, $osago_drivers, $throw_error = false)
+    {
+        if ($accident->partner_id == Partner::PARTNER['gross'])
+        {
+            $request_body = [
+                'program_id' => self::DEFAULT_PROGRAM_ID,
+                'begin_date' => DateHelper::date_format($accident->begin_date, 'm.d.Y', 'd.m.Y'),
+                'owner_phone' => $accident->insurer_phone,
+                'gos_number' => $accident->osago->autonumber,
+                'tech_sery' => $accident->osago->insurer_tech_pass_series,
+                'tech_number' => $accident->osago->insurer_tech_pass_number,
+                'owner_is_insurer' => $accident->osago->owner_with_accident,
+                'insurance_amount' => $accident->insurance_amount,
+                'owner_passport_series' => $accident->insurer_passport_series,
+                'owner_passport_number' => $accident->insurer_passport_number,
+                'owner_pinfl' => $accident->insurer_pinfl,
+                'insureds' => array_map(function ($osago_driver){
+                    return [
+                        'pinfl' => $osago_driver->pinfl,
+                        'passport_series' => $osago_driver->passport_series,
+                        'passport_number' => $osago_driver->passport_number,
+                    ];
+                }, $osago_drivers),
+            ];
+            $response_arr = OsagoRequest::sendAccidentRequest(OsagoRequest::URLS['health_save_sb'], $accident, $request_body);
+
+            if (is_array($response_arr) and array_key_exists('response', $response_arr) and isset($response_arr['response']->order_id))
+                return $response_arr['response']->order_id;
+            elseif ($throw_error)
+                throw new BadRequestHttpException('Accident murojaatda error');
+        }elseif ($accident->partner_id == Partner::PARTNER['kapital']){
+
+            if (!$full_info = $accident->osago->getFullInfoFromKapital())
+                return false;
+
+            $auto_info = $full_info['auto_info'];
+            $person_info = $full_info['person_info'];
+            $driver_info = $full_info['driver_info'];
+
+            $response_arr = KapitalSugurtaRequest::sendRequest(KapitalSugurtaRequest::URLS['create_accident'], $accident, [
+                'birth_date' => $driver_info['BIRTH_DATE'],
+                'passery' => $person_info['passSeries'],
+                'pasnumber' => $person_info['passNumber'],
+                'pinfl' => $auto_info['PINFL'],
+                'last_name' => $driver_info['LAST_NAME_LATIN'],
+                'first_name' => $driver_info['FIRST_NAME_LATIN'],
+                'middle_name' => $driver_info['MIDDLE_NAME_LATIN'],
+                'region_id' => $driver_info['OBLAST'],
+                'district_id' => $driver_info['RAYON'],
+                'address' => $person_info['address'],
+                'phone' => $accident->fUser->phone,
+                'issue_date' => date('d.m.Y'),
+                'start_date' => DateHelper::date_format($accident->begin_date, 'Y-m-d', 'd.m.Y'),
+                'end_date' => DateHelper::date_format($accident->end_date, 'Y-m-d', 'd.m.Y'),
+                'oplata' => $accident->osago->accident_amount,
+                'opl_type' => 1,
+                'pturi' => 252,
+                'doc_type' => 4,
+                'rate_id' => null,
+                'insured' => [
+                    [
+                        'passery' => $person_info['passSeries'],
+                        'pasnumber' => $person_info['passNumber'],
+                        'last_name' => $driver_info['LAST_NAME_LATIN'],
+                        'first_name' => $driver_info['FIRST_NAME_LATIN'],
+                        'middle_name' => $driver_info['MIDDLE_NAME_LATIN'],
+                    ]
+                ],
+            ], $throw_error, [], 'post');
+
+            if (is_array($response_arr) and array_key_exists('anketa_id', $response_arr) and !empty($response_arr['anketa_id']))
+                return $response_arr['anketa_id'];
+        }elseif ($accident->partner_id == Partner::PARTNER['neo']){
+
+            $request_body = [
+                'begin_date' => DateHelper::date_format($accident->begin_date, 'm.d.Y', 'd.m.Y'),
+                'owner_phone' => $accident->insurer_phone,
+                'gos_number' => $accident->osago->autonumber,
+                'tech_sery' => $accident->osago->insurer_tech_pass_series,
+                'tech_number' => $accident->osago->insurer_tech_pass_number,
+                'owner_is_insurer' => $accident->osago->owner_with_accident,
+                'insurance_amount' => $accident->insurance_amount,
+                'owner_passport_series' => $accident->insurer_passport_series,
+                'owner_passport_number' => $accident->insurer_passport_number,
+                'owner_pinfl' => $accident->insurer_pinfl,
+                'insureds' => array_map(function ($osago_driver){
+                    return [
+                        'pinfl' => $osago_driver->pinfl,
+                        'passport_series' => $osago_driver->passport_series,
+                        'passport_number' => $osago_driver->passport_number,
+                    ];
+                }, $osago_drivers),
+            ];
+            $response_arr = NeoRequest::sendAccidentRequest(NeoRequest::URLS['save_accident_police_url'], $accident, $request_body);
+
+            if (is_array($response_arr) and array_key_exists('response', $response_arr) and isset($response_arr['response']->order_id))
+                return $response_arr['response']->order_id;
+            elseif ($throw_error)
+                throw new BadRequestHttpException('Accident neo murojaatda error');
+        }
+
+        return false;
+    }
+
+    public function get_policy_from_partner($osago, $request_times, $interval_in_seconds = 0, $throw_error = false)
+    {
+        /** @var Osago $osago */
+
+        /** @var OsagoDriver[] $osago_drivers */
+        $osago_drivers = OsagoDriver::find()->where(['osago_id' => $osago->id, 'with_accident' => true])->all();
+
+        if (count($osago_drivers) == 0 and !$osago->owner_with_accident)
+            return null;
+
+        $accident = $this->save_accident_from_osago($osago, $osago_drivers);
+
+        if ($accident->status == self::STATUS['canceled'] or !empty($accident->policy_pdf_url))
+            return null;
+
+        for ($i = 0; $i < $request_times; $i++)
+        {
+            $accident->begin_date = $osago->begin_date;
+            $accident->end_date = date('Y-m-d', strtotime($accident->begin_date . ' +364 day'));
+            $accident->save();
+
+            $accident->order_id_in_gross = $this->create_accident_in_partner_system($accident, $osago_drivers, $throw_error);
+            $accident->save();
+            if (!empty($accident->order_id_in_gross))
+                break;
+            sleep($interval_in_seconds);
+        }
+
+        if (!empty($accident->order_id_in_gross))
+        {
+            for ($i = 0; $i < 10; $i++)
+            {
+                if ($this->partner_id == Partner::PARTNER['gross'])
+                {
+                    $response = OsagoRequest::sendAccidentRequest(OsagoRequest::URLS['health_payment'], $accident, [
+                        "order_id" => $accident->order_id_in_gross,
+                        "amount" => $accident->osago->getAccidentAmountWithoutDiscount(),
+                    ]);
+                }elseif ($this->partner_id == Partner::PARTNER['neo']){
+                    $response = NeoRequest::sendAccidentRequest(NeoRequest::URLS['confirm_accident_policy'], $accident, [
+                        "order_id" => $accident->order_id_in_gross,
+                        "amount" => $accident->osago->getAccidentAmountWithoutDiscount()$accident->osago->getAccidentAmountWithoutDiscount(),
+                    ]);
+                }
+                $success_condition = (is_array($response) and array_key_exists('response', $response) and $response['response'] and !empty($response['response']->url));
+                if ($success_condition)
+                    break;
+            }
+            if ($success_condition)
+            {
+                $accident->policy_pdf_url = $response['response']->url;
+                $accident->policy_number = $response['response']->policy_number;
+                $accident->status = self::STATUS['received_policy'];
+                $accident->save();
+            }elseif ($throw_error)
+                throw new BadRequestHttpException('Accident murojaatda error');
+        }
+
+        if (!empty($accident->policy_pdf_url))
+        {
+            $accident->status = Accident::STATUS['received_policy'];
+            $accident->save();
+            TelegramService::send($accident);
+            if (empty($this->osago->bridge_company_id))
+                SMSService::sendMessageAll($accident->fUser->phone, Yii::t('app', "Sug'urta Bozor ACCIDENT polis: ") .  $accident->policy_pdf_url, $accident->fUser->telegram_chat_ids());
+            elseif (!in_array($this->osago->bridge_company_id, [BridgeCompany::BRIDGE_COMPANY['paynet']]))
+                Yii::$app->queue1->push(new NotifyBridgeCompanyJob(['accident_id' => $this->id]));
+        }
+
+        return $accident;
+    }
+
+    public function save_accident_from_osago(Osago $osago, $osago_drivers)
+    {
+        $accident = $this;
+        if (is_null($accident->id))
+            $accident = $osago->accident;
+        if (is_null($accident) or is_null($accident->id))
+        {
+            $accident = new self();
+            $accident->f_user_id = $osago->f_user_id;
+            $accident->insurer_phone = $osago->user->phone;
+            $accident->partner_id = $osago->partner_id;
+            $accident->status = self::STATUS['created'];
+            if ($osago->partner_id == Partner::PARTNER['gross'])
+                $accident->status = self::STATUS['payed'];
+            $accident->payed_date = date('Y-m-d H:i:s', $osago->payed_date);
+            $accident->begin_date = date('Y-m-d', strtotime("+1 day"));
+            $accident->end_date = date('Y-m-d', strtotime($accident->begin_date . ' +364 day'));
+            $accident->created_at = time();
+            $accident->trans_id = $osago->trans_id;
+            $accident->insurance_amount = self::DEFAULT_INSURANCE_AMOUNT;
+            $accident->insurer_passport_series = $osago->insurer_passport_series;
+            $accident->insurer_passport_number = $osago->insurer_passport_number;
+            $accident->insurer_pinfl = $osago->insurer_pinfl;
+            $accident->osago_id = $osago->id;
+
+            $accident->save();
+
+            foreach ($osago_drivers as $osago_driver) {
+                $this->save_accident_insurer_from_osago_driver($accident->id, $osago_driver);
+            }
+
+            $accident->amount_uzs = $osago->accident_amount;
+            $accident->save();
+        }
+
+        return $accident;
+    }
+
+    public function save_accident_insurer_from_osago_driver($accident_id, $osago_driver)
+    {
+        /** @var OsagoDriver $osago_driver */
+
+        $accident_insurer = new AccidentInsurer();
+        $accident_insurer->birthday = date('Y-m-d', $osago_driver->birthday);
+        $accident_insurer->passport_series = $osago_driver->passport_series;
+        $accident_insurer->passport_number = $osago_driver->passport_number;
+        $accident_insurer->accident_id = $accident_id;
+        $accident_insurer->osago_driver_id = $osago_driver->id;
+        $accident_insurer->save();
+    }
+
+    public static function getGrossAccidentAmount($insurer_count, $times = 1, $accident = null, $throw_error = true)
+    {
+        if ($insurer_count == 0)
+            return 0;
+
+        if (is_null($accident))
+            $accident = new Accident();
+
+        $amount = null;
+        for ($i = 0; $i < $times; $i++) {
+            $response = OsagoRequest::sendAccidentRequest(OsagoRequest::URLS['health_calc_sb'], $accident, [
+                "program_id" => self::DEFAULT_PROGRAM_ID,
+                "insurer_count" => $insurer_count,
+                "insurance_amount" => self::DEFAULT_INSURANCE_AMOUNT,
+            ]);
+
+            if (is_array($response) and array_key_exists('response', $response) and $response['response'] and $response['response']->amount)
+            {
+                $amount = $response['response']->amount;
+                break;
+            }
+        }
+
+        if (is_null($amount) and $throw_error)
+            throw new BadRequestHttpException(Yii::t('app', "gross API siga murojaatda error"));
+
+        return $amount;
+    }
+
+    public static function getKapitalAccidentAmount($times, $accident, $throw_error)
+    {
+        if (is_null($accident))
+            $accident = new Accident();
+
+        $amount = null;
+        for ($i = 0; $i < $times; $i++) {
+            $response = KapitalSugurtaRequest::sendRequest(KapitalSugurtaRequest::URLS['get_doc_types'], $accident, []);
+
+            if (!is_array($response))
+                continue;
+
+            foreach ($response as $doc_type) {
+                if ($doc_type->ID == self::DEFAULT_DOC_TYPE_ID)
+                {
+                    $amount = $doc_type->PREM;
+                    break;
+                }
+            }
+        }
+
+        if (is_null($amount) and $throw_error)
+            throw new BadRequestHttpException(Yii::t('app', "kapital sug'urta API siga murojaatda error"));
+
+        return $amount;
+    }
+
+    public static function getAccidentAmount($insurer_count, $partner_id, $times = 1, $accident = null, $throw_error = true)
+    {
+        $accident_price = AccidentPrice::find()->orderBy('updated_at desc')->one();
+        if (empty($accident_price) or ($partner_id == Partner::PARTNER['kapital'] and empty($accident_price->kapital)) or ($partner_id == Partner::PARTNER['gross'] and empty($accident_price->gross)))
+            throw new NotFoundHttpException('accident price not found');
+
+        if ($partner_id == Partner::PARTNER['kapital'])
+            $amount = $accident_price->kapital * $insurer_count;
+        elseif ($partner_id == Partner::PARTNER['gross'] or $partner_id == Partner::PARTNER['neo'])
+            $amount = $accident_price->gross * $insurer_count;
+        elseif ($partner_id == Partner::PARTNER['insonline'])
+            $amount = 0;
+
+        return $amount;
+
+//        if ($partner_id == Partner::PARTNER['gross'])
+//            return self::getGrossAccidentAmount($insurer_count, $times, $accident, $throw_error);
+//        elseif ($partner_id == Partner::PARTNER['kapital'])
+//            return self::getKapitalAccidentAmount($times, $accident, $throw_error);
+    }
+}

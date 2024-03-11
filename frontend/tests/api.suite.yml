@@ -1,0 +1,15 @@
+actor: ApiTester
+modules:
+    enabled:
+        - \frontend\tests\Helper\Api
+        - REST:
+              url: http://insurance.test/index-test.php
+              depends: PhpBrowser
+              part: Json
+    config:
+      REST:
+        timeout: 90000
+      PhpBrowser:
+          url: 'http://insurance.test/index-test.php'
+          curl:
+            CURLOPT_TIMEOUT: 90000

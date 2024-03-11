@@ -1,0 +1,1416 @@
+[06-Sep-2020 15:32:05 Asia/Tashkent] An Error occurred while handling another error:
+PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "menu" does not exist
+LINE 1: SELECT * FROM "menu"
+                      ^ in /home/netkostu/public_html/vendor/yiisoft/yii2/db/Command.php:1293
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/db/Command.php(1293): PDOStatement->execute()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/db/Command.php(1159): yii\db\Command->internalExecute('SELECT * FROM "...')
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/db/Command.php(401): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/netkostu/public_html/vendor/yiisoft/yii2/db/Query.php(248): yii\db\Command->queryAll()
+#4 /home/netkostu/public_html/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/netkostu/public_html/vendor/mdmsoft/yii2-admin/components/MenuHelper.php(71): yii\db\ActiveQuery->all()
+#6 /home/netkostu/public_html/backend/views/layouts/left.php(42): mdm\admin\components\MenuHelper::getAssignedMenu(1)
+#7 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#8 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#9 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/home/netkostu/...', Array, NULL)
+#10 /home/netkostu/public_html/backend/views/layouts/main.php(50): yii\base\View->render('left.php', Array)
+#11 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#12 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#13 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(424): yii\base\View->renderFile('/home/netkostu/...', Array, Object(backend\controllers\SiteController))
+#14 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\Controller->renderContent('<section class=...')
+#15 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorAction.php(139): yii\base\Controller->render('error', Array)
+#16 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorAction.php(118): yii\web\ErrorAction->renderHtmlResponse()
+#17 [internal function]: yii\web\ErrorAction->run()
+#18 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Action.php(94): call_user_func_array(Array, Array)
+#19 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(180): yii\base\Action->runWithParams(Array)
+#20 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#21 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(109): yii\base\Module->runAction('site/error')
+#22 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\web\ForbiddenHttpException))
+#23 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\ForbiddenHttpException))
+#24 {main}
+
+Next yii\db\Exception: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "menu" does not exist
+LINE 1: SELECT * FROM "menu"
+                      ^
+The SQL being executed was: SELECT * FROM "menu" in /home/netkostu/public_html/vendor/yiisoft/yii2/db/Schema.php:677
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/db/Command.php(1298): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM "...')
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/db/Command.php(1159): yii\db\Command->internalExecute('SELECT * FROM "...')
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/db/Command.php(401): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/netkostu/public_html/vendor/yiisoft/yii2/db/Query.php(248): yii\db\Command->queryAll()
+#4 /home/netkostu/public_html/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/netkostu/public_html/vendor/mdmsoft/yii2-admin/components/MenuHelper.php(71): yii\db\ActiveQuery->all()
+#6 /home/netkostu/public_html/backend/views/layouts/left.php(42): mdm\admin\components\MenuHelper::getAssignedMenu(1)
+#7 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#8 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#9 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/home/netkostu/...', Array, NULL)
+#10 /home/netkostu/public_html/backend/views/layouts/main.php(50): yii\base\View->render('left.php', Array)
+#11 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#12 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#13 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(424): yii\base\View->renderFile('/home/netkostu/...', Array, Object(backend\controllers\SiteController))
+#14 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\Controller->renderContent('<section class=...')
+#15 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorAction.php(139): yii\base\Controller->render('error', Array)
+#16 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorAction.php(118): yii\web\ErrorAction->renderHtmlResponse()
+#17 [internal function]: yii\web\ErrorAction->run()
+#18 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Action.php(94): call_user_func_array(Array, Array)
+#19 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(180): yii\base\Action->runWithParams(Array)
+#20 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('error', Array)
+#21 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(109): yii\base\Module->runAction('site/error')
+#22 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\web\ForbiddenHttpException))
+#23 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\ForbiddenHttpException))
+#24 {main}
+Additional Information:
+Array
+(
+    [0] => 42P01
+    [1] => 7
+    [2] => ERROR:  relation "menu" does not exist
+LINE 1: SELECT * FROM "menu"
+                      ^
+)
+
+Previous exception:
+yii\web\ForbiddenHttpException: You are not allowed to perform this action. in /home/netkostu/public_html/vendor/mdmsoft/yii2-admin/components/AccessControl.php:88
+Stack trace:
+#0 /home/netkostu/public_html/vendor/mdmsoft/yii2-admin/components/AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ActionFilter.php(77): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(700): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(168): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('index', Array)
+#7 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('osago-amount/in...', Array)
+#8 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /home/netkostu/public_html/backend/web/index.php(17): yii\base\Application->run()
+#10 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
+    'CONTENT_LENGTH' => '0',
+    'HTTP_COOKIE' => 'advanced-backend=1a747b7f2f283d97ecbc31f7b1e8ae29; _identity-backend=3847c13d3dceeb50c46a51a1cefd40af810337288302891033642a1749dffd72a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22XdInDnS1GwGo7W62k__vZkAvb7y1hZj7%22%2C2592000%5D%22%3B%7D; _csrf-backend=c8ba129f0300b65c788dbb984a871cf270669b3c74de092d38b270075a442cb6a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22ewSbWbSQGnLUhSxcdqhs1iXHDUxdY29w%22%3B%7D',
+    'HTTP_HOST' => 'netkost.uz',
+    'HTTP_REFERER' => 'http://netkost.uz/admin/partner/products',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'netkost.uz',
+    'HTTP_X_FORWARDED_PORT' => '80',
+    'HTTP_X_FORWARDED_PROTO' => 'http',
+    'HTTP_X_FORWARDED_SERVER' => 'netkost.uz',
+    'HTTP_X_REAL_IP' => '::ffff:213.230.75.43',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'REDIRECT_REDIRECT_UNIQUE_ID' => 'X1S6pYoFf4dr6F644ldl9AAAARQ',
+    'REDIRECT_REDIRECT_SCRIPT_URL' => '/admin/osago-amount/index',
+    'REDIRECT_REDIRECT_SCRIPT_URI' => 'http://netkost.uz/admin/osago-amount/index',
+    'REDIRECT_REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'X1S6pYoFf4dr6F644ldl9AAAARQ',
+    'REDIRECT_SCRIPT_URL' => '/admin/osago-amount/index',
+    'REDIRECT_SCRIPT_URI' => 'http://netkost.uz/admin/osago-amount/index',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'X1S6pYoFf4dr6F644ldl9AAAARQ',
+    'SCRIPT_URL' => '/admin/osago-amount/index',
+    'SCRIPT_URI' => 'http://netkost.uz/admin/osago-amount/index',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'netkost.uz',
+    'SERVER_ADDR' => '83.69.139.168',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '213.230.75.43',
+    'DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'SERVER_ADMIN' => 'webmaster@netkost.uz',
+    'SCRIPT_FILENAME' => '/home/netkostu/public_html/backend/web/index.php',
+    'REMOTE_PORT' => '25712',
+    'REDIRECT_URL' => '/backend/web/osago-amount/index',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/osago-amount/index',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1599388325.174089,
+    'REQUEST_TIME' => 1599388325,
+]
+[14-Sep-2020 22:47:53 Asia/Tashkent] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/TravelProgramPeriodController.php on line 64. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/TravelProgramPeriodController.php on line 64. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Response->send()
+#2 /home/netkostu/public_html/backend/web/index.php(17): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTENT_LENGTH' => '525',
+    'HTTP_COOKIE' => '_identity-backend=3847c13d3dceeb50c46a51a1cefd40af810337288302891033642a1749dffd72a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22XdInDnS1GwGo7W62k__vZkAvb7y1hZj7%22%2C2592000%5D%22%3B%7D; _csrf-backend=c8ba129f0300b65c788dbb984a871cf270669b3c74de092d38b270075a442cb6a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22ewSbWbSQGnLUhSxcdqhs1iXHDUxdY29w%22%3B%7D; _csrf-frontend=7d7656d8c81c99c23b694ce19a6327a3ab52c67d55de0bb47bfd47965b3a6979a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22Dz06XHlRdgxzdGsoDoPSf-_y0t4fbnwy%22%3B%7D; advanced-frontend=c31c94467223344f6caae638dda9f969; advanced-backend=7add51168532660c5903a052db0c158e',
+    'HTTP_HOST' => 'netkost.uz',
+    'HTTP_REFERER' => 'https://netkost.uz/admin/travel-program-period/set-amounts?partner_id=1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'netkost.uz',
+    'HTTP_X_FORWARDED_PORT' => '443',
+    'HTTP_X_FORWARDED_PROTO' => 'https',
+    'HTTP_X_FORWARDED_SERVER' => 'netkost.uz',
+    'HTTP_X_REAL_IP' => '::ffff:84.54.87.191',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'https://netkost.uz',
+    'HTTP_SEC_FETCH_SITE' => 'same-origin',
+    'HTTP_SEC_FETCH_MODE' => 'navigate',
+    'HTTP_SEC_FETCH_USER' => '?1',
+    'HTTP_SEC_FETCH_DEST' => 'document',
+    'REDIRECT_REDIRECT_UNIQUE_ID' => 'X1@syZ0@-ev6NV-hAiz21QAAAYA',
+    'REDIRECT_REDIRECT_HTTPS' => 'on',
+    'REDIRECT_REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'X1@syZ0@-ev6NV-hAiz21QAAAYA',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'X1@syZ0@-ev6NV-hAiz21QAAAYA',
+    'HTTPS' => 'on',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'netkost.uz',
+    'SERVER_ADDR' => '83.69.139.168',
+    'SERVER_PORT' => '443',
+    'REMOTE_ADDR' => '84.54.87.191',
+    'DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'REQUEST_SCHEME' => 'https',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'SERVER_ADMIN' => 'webmaster@netkost.uz',
+    'SCRIPT_FILENAME' => '/home/netkostu/public_html/backend/web/index.php',
+    'REMOTE_PORT' => '44900',
+    'REDIRECT_URL' => '/backend/web/travel-program-period/set-amounts',
+    'REDIRECT_QUERY_STRING' => 'partner_id=1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => 'partner_id=1',
+    'REQUEST_URI' => '/admin/travel-program-period/set-amounts?partner_id=1',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1600105673.413995,
+    'REQUEST_TIME' => 1600105673,
+]
+[01-Oct-2020 11:17:45 Asia/Tashkent] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/TravelProgramPeriodController.php on line 120. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/TravelProgramPeriodController.php on line 120. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Response->send()
+#2 /home/netkostu/public_html/backend/web/index.php(17): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryckyZ81HC7jfCdjbT',
+    'CONTENT_LENGTH' => '262234',
+    'HTTP_COOKIE' => '_csrf-frontend=9f94c3a19e791a50e4c894f4f7e2b195865c5e8eb912e09dec33360a2e0e3d02a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22SrOwmaPMjyrCdSQdgjUuw2K-qaT_Or_U%22%3B%7D; advanced-frontend=859ba19c20a1bbb8c4543e4bc7410620; _language=3a2a20c49bc79e55c92dd6d4aec62c90e6a69732be0d633705df0faa718575c7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22ru%22%3B%7D; _identity-backend=3847c13d3dceeb50c46a51a1cefd40af810337288302891033642a1749dffd72a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22XdInDnS1GwGo7W62k__vZkAvb7y1hZj7%22%2C2592000%5D%22%3B%7D; _csrf-backend=b4e21831a68deb4b61b903340134cd4a30b6e42ab59b1245de254880c1f2be5ca%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22XfOp4_BO4KQFWl1hp_YZyG1SZs4dojXD%22%3B%7D; advanced-backend=464b4efd7da99e478941bebfed31fa61',
+    'HTTP_HOST' => 'www.netkost.uz',
+    'HTTP_REFERER' => 'http://www.netkost.uz/admin/travel-program-period/set-travel-info?partner_id=7',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'www.netkost.uz',
+    'HTTP_X_FORWARDED_PORT' => '80',
+    'HTTP_X_FORWARDED_PROTO' => 'http',
+    'HTTP_X_FORWARDED_SERVER' => 'www.netkost.uz',
+    'HTTP_X_REAL_IP' => '::ffff:213.230.76.175',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'http://www.netkost.uz',
+    'REDIRECT_REDIRECT_UNIQUE_ID' => 'X3V0iZqxQH8N1PtoyNk8rwAAAUs',
+    'REDIRECT_REDIRECT_SCRIPT_URL' => '/admin/travel-program-period/set-travel-info',
+    'REDIRECT_REDIRECT_SCRIPT_URI' => 'http://www.netkost.uz/admin/travel-program-period/set-travel-info',
+    'REDIRECT_REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'X3V0iZqxQH8N1PtoyNk8rwAAAUs',
+    'REDIRECT_SCRIPT_URL' => '/admin/travel-program-period/set-travel-info',
+    'REDIRECT_SCRIPT_URI' => 'http://www.netkost.uz/admin/travel-program-period/set-travel-info',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'X3V0iZqxQH8N1PtoyNk8rwAAAUs',
+    'SCRIPT_URL' => '/admin/travel-program-period/set-travel-info',
+    'SCRIPT_URI' => 'http://www.netkost.uz/admin/travel-program-period/set-travel-info',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'www.netkost.uz',
+    'SERVER_ADDR' => '83.69.139.168',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '213.230.76.175',
+    'DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'SERVER_ADMIN' => 'webmaster@netkost.uz',
+    'SCRIPT_FILENAME' => '/home/netkostu/public_html/backend/web/index.php',
+    'REMOTE_PORT' => '43550',
+    'REDIRECT_URL' => '/backend/web/travel-program-period/set-travel-info',
+    'REDIRECT_QUERY_STRING' => 'partner_id=7',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => 'partner_id=7',
+    'REQUEST_URI' => '/admin/travel-program-period/set-travel-info?partner_id=7',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1601533065.862921,
+    'REQUEST_TIME' => 1601533065,
+]
+[01-Oct-2020 11:22:57 Asia/Tashkent] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/TravelProgramPeriodController.php on line 121. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/TravelProgramPeriodController.php on line 121. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Response->send()
+#2 /home/netkostu/public_html/backend/web/index.php(17): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryb997U04lIwSZa4Hp',
+    'CONTENT_LENGTH' => '262223',
+    'HTTP_COOKIE' => '_csrf-frontend=9f94c3a19e791a50e4c894f4f7e2b195865c5e8eb912e09dec33360a2e0e3d02a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22SrOwmaPMjyrCdSQdgjUuw2K-qaT_Or_U%22%3B%7D; advanced-frontend=859ba19c20a1bbb8c4543e4bc7410620; _language=3a2a20c49bc79e55c92dd6d4aec62c90e6a69732be0d633705df0faa718575c7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22ru%22%3B%7D; _identity-backend=3847c13d3dceeb50c46a51a1cefd40af810337288302891033642a1749dffd72a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22XdInDnS1GwGo7W62k__vZkAvb7y1hZj7%22%2C2592000%5D%22%3B%7D; _csrf-backend=b4e21831a68deb4b61b903340134cd4a30b6e42ab59b1245de254880c1f2be5ca%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22XfOp4_BO4KQFWl1hp_YZyG1SZs4dojXD%22%3B%7D; advanced-backend=464b4efd7da99e478941bebfed31fa61',
+    'HTTP_HOST' => 'www.netkost.uz',
+    'HTTP_REFERER' => 'http://www.netkost.uz/admin/travel-program-period/set-travel-info?partner_id=1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'www.netkost.uz',
+    'HTTP_X_FORWARDED_PORT' => '80',
+    'HTTP_X_FORWARDED_PROTO' => 'http',
+    'HTTP_X_FORWARDED_SERVER' => 'www.netkost.uz',
+    'HTTP_X_REAL_IP' => '::ffff:213.230.76.175',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'http://www.netkost.uz',
+    'REDIRECT_REDIRECT_UNIQUE_ID' => 'X3V1wWN0RKwgSOISUB-F9AAAARY',
+    'REDIRECT_REDIRECT_SCRIPT_URL' => '/admin/travel-program-period/set-travel-info',
+    'REDIRECT_REDIRECT_SCRIPT_URI' => 'http://www.netkost.uz/admin/travel-program-period/set-travel-info',
+    'REDIRECT_REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'X3V1wWN0RKwgSOISUB-F9AAAARY',
+    'REDIRECT_SCRIPT_URL' => '/admin/travel-program-period/set-travel-info',
+    'REDIRECT_SCRIPT_URI' => 'http://www.netkost.uz/admin/travel-program-period/set-travel-info',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'X3V1wWN0RKwgSOISUB-F9AAAARY',
+    'SCRIPT_URL' => '/admin/travel-program-period/set-travel-info',
+    'SCRIPT_URI' => 'http://www.netkost.uz/admin/travel-program-period/set-travel-info',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'www.netkost.uz',
+    'SERVER_ADDR' => '83.69.139.168',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '213.230.76.175',
+    'DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'SERVER_ADMIN' => 'webmaster@netkost.uz',
+    'SCRIPT_FILENAME' => '/home/netkostu/public_html/backend/web/index.php',
+    'REMOTE_PORT' => '16240',
+    'REDIRECT_URL' => '/backend/web/travel-program-period/set-travel-info',
+    'REDIRECT_QUERY_STRING' => 'partner_id=1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => 'partner_id=1',
+    'REQUEST_URI' => '/admin/travel-program-period/set-travel-info?partner_id=1',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1601533377.662772,
+    'REQUEST_TIME' => 1601533377,
+]
+[08-Nov-2020 22:39:24 Asia/Tashkent] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/NewsController.php on line 80. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/NewsController.php on line 80. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Response->send()
+#2 /home/netkostu/public_html/backend/web/index.php(17): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryqnicEAnQkdHVAeO9',
+    'CONTENT_LENGTH' => '2178394',
+    'HTTP_COOKIE' => '_csrf-frontend=7d7656d8c81c99c23b694ce19a6327a3ab52c67d55de0bb47bfd47965b3a6979a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22Dz06XHlRdgxzdGsoDoPSf-_y0t4fbnwy%22%3B%7D; advanced-frontend=c31c94467223344f6caae638dda9f969; _identity-backend=3847c13d3dceeb50c46a51a1cefd40af810337288302891033642a1749dffd72a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22XdInDnS1GwGo7W62k__vZkAvb7y1hZj7%22%2C2592000%5D%22%3B%7D; _csrf-backend=da7ff1916de6b8a6008c127ef209e77171f704070ac348de0a7750b75699a9c4a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22HfHpoXwEwtlsgr1FLWISMzXYN1EfnY9s%22%3B%7D; _language=3a2a20c49bc79e55c92dd6d4aec62c90e6a69732be0d633705df0faa718575c7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22ru%22%3B%7D; advanced-backend=4276bfdee504ebd56978dd5f2b9da590',
+    'HTTP_HOST' => 'netkost.uz',
+    'HTTP_REFERER' => 'https://netkost.uz/admin/news/create',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'netkost.uz',
+    'HTTP_X_FORWARDED_PORT' => '443',
+    'HTTP_X_FORWARDED_PROTO' => 'https',
+    'HTTP_X_FORWARDED_SERVER' => 'netkost.uz',
+    'HTTP_X_REAL_IP' => '::ffff:213.230.103.138',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'https://netkost.uz',
+    'HTTP_SEC_FETCH_SITE' => 'same-origin',
+    'HTTP_SEC_FETCH_MODE' => 'navigate',
+    'HTTP_SEC_FETCH_USER' => '?1',
+    'HTTP_SEC_FETCH_DEST' => 'document',
+    'REDIRECT_REDIRECT_UNIQUE_ID' => 'X6gtSwC2LpN9eXsvepGZ7wAAABI',
+    'REDIRECT_REDIRECT_HTTPS' => 'on',
+    'REDIRECT_REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'X6gtSwC2LpN9eXsvepGZ7wAAABI',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'X6gtSwC2LpN9eXsvepGZ7wAAABI',
+    'HTTPS' => 'on',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'netkost.uz',
+    'SERVER_ADDR' => '83.69.139.168',
+    'SERVER_PORT' => '443',
+    'REMOTE_ADDR' => '213.230.103.138',
+    'DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'REQUEST_SCHEME' => 'https',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'SERVER_ADMIN' => 'webmaster@netkost.uz',
+    'SCRIPT_FILENAME' => '/home/netkostu/public_html/backend/web/index.php',
+    'REMOTE_PORT' => '14276',
+    'REDIRECT_URL' => '/backend/web/news/create',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/news/create',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1604857164.057562,
+    'REQUEST_TIME' => 1604857164,
+]
+[08-Nov-2020 22:42:05 Asia/Tashkent] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/NewsController.php on line 76. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/NewsController.php on line 76. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Response->send()
+#2 /home/netkostu/public_html/backend/web/index.php(17): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryqnicEAnQkdHVAeO9',
+    'CONTENT_LENGTH' => '2178394',
+    'HTTP_COOKIE' => '_csrf-frontend=7d7656d8c81c99c23b694ce19a6327a3ab52c67d55de0bb47bfd47965b3a6979a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22Dz06XHlRdgxzdGsoDoPSf-_y0t4fbnwy%22%3B%7D; advanced-frontend=c31c94467223344f6caae638dda9f969; _identity-backend=3847c13d3dceeb50c46a51a1cefd40af810337288302891033642a1749dffd72a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22XdInDnS1GwGo7W62k__vZkAvb7y1hZj7%22%2C2592000%5D%22%3B%7D; _csrf-backend=da7ff1916de6b8a6008c127ef209e77171f704070ac348de0a7750b75699a9c4a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22HfHpoXwEwtlsgr1FLWISMzXYN1EfnY9s%22%3B%7D; _language=3a2a20c49bc79e55c92dd6d4aec62c90e6a69732be0d633705df0faa718575c7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22ru%22%3B%7D; advanced-backend=4276bfdee504ebd56978dd5f2b9da590',
+    'HTTP_HOST' => 'netkost.uz',
+    'HTTP_REFERER' => 'https://netkost.uz/admin/news/create',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'netkost.uz',
+    'HTTP_X_FORWARDED_PORT' => '443',
+    'HTTP_X_FORWARDED_PROTO' => 'https',
+    'HTTP_X_FORWARDED_SERVER' => 'netkost.uz',
+    'HTTP_X_REAL_IP' => '::ffff:213.230.103.138',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'https://netkost.uz',
+    'HTTP_SEC_FETCH_SITE' => 'same-origin',
+    'HTTP_SEC_FETCH_MODE' => 'navigate',
+    'HTTP_SEC_FETCH_USER' => '?1',
+    'HTTP_SEC_FETCH_DEST' => 'document',
+    'REDIRECT_REDIRECT_UNIQUE_ID' => 'X6gt7dk4Zq7yaMzPQIOFVwAAAEA',
+    'REDIRECT_REDIRECT_HTTPS' => 'on',
+    'REDIRECT_REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'X6gt7dk4Zq7yaMzPQIOFVwAAAEA',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'X6gt7dk4Zq7yaMzPQIOFVwAAAEA',
+    'HTTPS' => 'on',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'netkost.uz',
+    'SERVER_ADDR' => '83.69.139.168',
+    'SERVER_PORT' => '443',
+    'REMOTE_ADDR' => '213.230.103.138',
+    'DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'REQUEST_SCHEME' => 'https',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'SERVER_ADMIN' => 'webmaster@netkost.uz',
+    'SCRIPT_FILENAME' => '/home/netkostu/public_html/backend/web/index.php',
+    'REMOTE_PORT' => '30764',
+    'REDIRECT_URL' => '/backend/web/news/create',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/news/create',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1604857325.611481,
+    'REQUEST_TIME' => 1604857325,
+]
+[10-Nov-2020 00:45:44 Asia/Tashkent] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/NewsController.php on line 79. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_name(): Cannot change session name when headers already sent in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php:326
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_name():...', '/home/netkostu/...', 326, Array)
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php(326): session_name('advanced-backen...')
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(180): yii\web\Session->setName('advanced-backen...')
+#3 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(558): yii\base\Component->__set('name', 'advanced-backen...')
+#4 /home/netkostu/public_html/vendor/yiisoft/yii2/base/BaseObject.php(107): yii\BaseYii::configure(Object(yii\web\Session), Array)
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#7 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\web\\Session', Array, Array)
+#8 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\web\\Session', Array, Array)
+#9 /home/netkostu/public_html/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#10 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('session', true)
+#11 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(178): yii\base\Module->get('session')
+#12 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(684): yii\web\Application->getSession()
+#13 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(194): yii\web\User->renewAuthStatus()
+#14 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(362): yii\web\User->getIdentity()
+#15 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(139): yii\web\User->getIsGuest()
+#16 /home/netkostu/public_html/backend/views/layouts/header.php(23): yii\base\Component->__get('isGuest')
+#17 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#18 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#19 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/home/netkostu/...', Array, NULL)
+#20 /home/netkostu/public_html/backend/views/layouts/main.php(45): yii\base\View->render('header.php', Array)
+#21 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#22 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#23 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(424): yii\base\View->renderFile('/home/netkostu/...', Array, Object(backend\controllers\NewsController))
+#24 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\Controller->renderContent('<div class="new...')
+#25 /home/netkostu/public_html/backend/controllers/NewsController.php(111): yii\base\Controller->render('create', Array)
+#26 [internal function]: backend\controllers\NewsController->actionCreate()
+#27 /home/netkostu/public_html/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#28 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(180): yii\base\InlineAction->runWithParams(Array)
+#29 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#30 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('news/create', Array)
+#31 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#32 /home/netkostu/public_html/backend/web/index.php(17): yii\base\Application->run()
+#33 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryxx7q0uzBaVDpNkKF',
+    'CONTENT_LENGTH' => '2237',
+    'HTTP_COOKIE' => '_csrf-frontend=7d7656d8c81c99c23b694ce19a6327a3ab52c67d55de0bb47bfd47965b3a6979a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22Dz06XHlRdgxzdGsoDoPSf-_y0t4fbnwy%22%3B%7D; advanced-frontend=c31c94467223344f6caae638dda9f969; _identity-backend=3847c13d3dceeb50c46a51a1cefd40af810337288302891033642a1749dffd72a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22XdInDnS1GwGo7W62k__vZkAvb7y1hZj7%22%2C2592000%5D%22%3B%7D; _csrf-backend=da7ff1916de6b8a6008c127ef209e77171f704070ac348de0a7750b75699a9c4a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22HfHpoXwEwtlsgr1FLWISMzXYN1EfnY9s%22%3B%7D; _language=b4a1d83c6024e0e231b10c1aee1a459806ab3c775422a26a07fd10cd7d6598aaa%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; advanced-backend=e4b1f191bda7991df3269046ae9a9944',
+    'HTTP_HOST' => 'netkost.uz',
+    'HTTP_REFERER' => 'https://netkost.uz/admin/news/create',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'netkost.uz',
+    'HTTP_X_FORWARDED_PORT' => '443',
+    'HTTP_X_FORWARDED_PROTO' => 'https',
+    'HTTP_X_FORWARDED_SERVER' => 'netkost.uz',
+    'HTTP_X_REAL_IP' => '::ffff:213.230.103.42',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'https://netkost.uz',
+    'HTTP_SEC_FETCH_SITE' => 'same-origin',
+    'HTTP_SEC_FETCH_MODE' => 'navigate',
+    'HTTP_SEC_FETCH_USER' => '?1',
+    'HTTP_SEC_FETCH_DEST' => 'document',
+    'REDIRECT_REDIRECT_UNIQUE_ID' => 'X6mcaKxbey5FhWY2SlwFJgAAAJE',
+    'REDIRECT_REDIRECT_HTTPS' => 'on',
+    'REDIRECT_REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'X6mcaKxbey5FhWY2SlwFJgAAAJE',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'X6mcaKxbey5FhWY2SlwFJgAAAJE',
+    'HTTPS' => 'on',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'netkost.uz',
+    'SERVER_ADDR' => '83.69.139.168',
+    'SERVER_PORT' => '443',
+    'REMOTE_ADDR' => '213.230.103.42',
+    'DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'REQUEST_SCHEME' => 'https',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'SERVER_ADMIN' => 'webmaster@netkost.uz',
+    'SCRIPT_FILENAME' => '/home/netkostu/public_html/backend/web/index.php',
+    'REMOTE_PORT' => '49934',
+    'REDIRECT_URL' => '/backend/web/news/create',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/news/create',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1604951144.379665,
+    'REQUEST_TIME' => 1604951144,
+]
+[10-Nov-2020 00:46:09 Asia/Tashkent] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/NewsController.php on line 79. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_name(): Cannot change session name when headers already sent in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php:326
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_name():...', '/home/netkostu/...', 326, Array)
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php(326): session_name('advanced-backen...')
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(180): yii\web\Session->setName('advanced-backen...')
+#3 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(558): yii\base\Component->__set('name', 'advanced-backen...')
+#4 /home/netkostu/public_html/vendor/yiisoft/yii2/base/BaseObject.php(107): yii\BaseYii::configure(Object(yii\web\Session), Array)
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#7 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\web\\Session', Array, Array)
+#8 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\web\\Session', Array, Array)
+#9 /home/netkostu/public_html/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#10 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('session', true)
+#11 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(178): yii\base\Module->get('session')
+#12 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(684): yii\web\Application->getSession()
+#13 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(194): yii\web\User->renewAuthStatus()
+#14 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(362): yii\web\User->getIdentity()
+#15 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(139): yii\web\User->getIsGuest()
+#16 /home/netkostu/public_html/backend/views/layouts/header.php(23): yii\base\Component->__get('isGuest')
+#17 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#18 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#19 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/home/netkostu/...', Array, NULL)
+#20 /home/netkostu/public_html/backend/views/layouts/main.php(45): yii\base\View->render('header.php', Array)
+#21 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#22 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#23 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(424): yii\base\View->renderFile('/home/netkostu/...', Array, Object(backend\controllers\NewsController))
+#24 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\Controller->renderContent('<div class="new...')
+#25 /home/netkostu/public_html/backend/controllers/NewsController.php(111): yii\base\Controller->render('create', Array)
+#26 [internal function]: backend\controllers\NewsController->actionCreate()
+#27 /home/netkostu/public_html/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#28 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(180): yii\base\InlineAction->runWithParams(Array)
+#29 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#30 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('news/create', Array)
+#31 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#32 /home/netkostu/public_html/backend/web/index.php(17): yii\base\Application->run()
+#33 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryxx7q0uzBaVDpNkKF',
+    'CONTENT_LENGTH' => '2237',
+    'HTTP_COOKIE' => '_csrf-frontend=7d7656d8c81c99c23b694ce19a6327a3ab52c67d55de0bb47bfd47965b3a6979a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22Dz06XHlRdgxzdGsoDoPSf-_y0t4fbnwy%22%3B%7D; advanced-frontend=c31c94467223344f6caae638dda9f969; _identity-backend=3847c13d3dceeb50c46a51a1cefd40af810337288302891033642a1749dffd72a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22XdInDnS1GwGo7W62k__vZkAvb7y1hZj7%22%2C2592000%5D%22%3B%7D; _csrf-backend=da7ff1916de6b8a6008c127ef209e77171f704070ac348de0a7750b75699a9c4a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22HfHpoXwEwtlsgr1FLWISMzXYN1EfnY9s%22%3B%7D; _language=b4a1d83c6024e0e231b10c1aee1a459806ab3c775422a26a07fd10cd7d6598aaa%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; advanced-backend=e4b1f191bda7991df3269046ae9a9944',
+    'HTTP_HOST' => 'netkost.uz',
+    'HTTP_REFERER' => 'https://netkost.uz/admin/news/create',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'netkost.uz',
+    'HTTP_X_FORWARDED_PORT' => '443',
+    'HTTP_X_FORWARDED_PROTO' => 'https',
+    'HTTP_X_FORWARDED_SERVER' => 'netkost.uz',
+    'HTTP_X_REAL_IP' => '::ffff:213.230.103.42',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'https://netkost.uz',
+    'HTTP_SEC_FETCH_SITE' => 'same-origin',
+    'HTTP_SEC_FETCH_MODE' => 'navigate',
+    'HTTP_SEC_FETCH_USER' => '?1',
+    'HTTP_SEC_FETCH_DEST' => 'document',
+    'REDIRECT_REDIRECT_UNIQUE_ID' => 'X6mcgZoa4GXzxtMTszvJlAAAAAM',
+    'REDIRECT_REDIRECT_HTTPS' => 'on',
+    'REDIRECT_REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'X6mcgZoa4GXzxtMTszvJlAAAAAM',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'X6mcgZoa4GXzxtMTszvJlAAAAAM',
+    'HTTPS' => 'on',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'netkost.uz',
+    'SERVER_ADDR' => '83.69.139.168',
+    'SERVER_PORT' => '443',
+    'REMOTE_ADDR' => '213.230.103.42',
+    'DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'REQUEST_SCHEME' => 'https',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'SERVER_ADMIN' => 'webmaster@netkost.uz',
+    'SCRIPT_FILENAME' => '/home/netkostu/public_html/backend/web/index.php',
+    'REMOTE_PORT' => '51824',
+    'REDIRECT_URL' => '/backend/web/news/create',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/news/create',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1604951169.331175,
+    'REQUEST_TIME' => 1604951169,
+]
+[10-Nov-2020 00:47:54 Asia/Tashkent] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/NewsController.php on line 79. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_name(): Cannot change session name when headers already sent in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php:326
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_name():...', '/home/netkostu/...', 326, Array)
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php(326): session_name('advanced-backen...')
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(180): yii\web\Session->setName('advanced-backen...')
+#3 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(558): yii\base\Component->__set('name', 'advanced-backen...')
+#4 /home/netkostu/public_html/vendor/yiisoft/yii2/base/BaseObject.php(107): yii\BaseYii::configure(Object(yii\web\Session), Array)
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#7 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\web\\Session', Array, Array)
+#8 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\web\\Session', Array, Array)
+#9 /home/netkostu/public_html/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#10 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('session', true)
+#11 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(178): yii\base\Module->get('session')
+#12 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(684): yii\web\Application->getSession()
+#13 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(194): yii\web\User->renewAuthStatus()
+#14 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(362): yii\web\User->getIdentity()
+#15 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(139): yii\web\User->getIsGuest()
+#16 /home/netkostu/public_html/backend/views/layouts/header.php(23): yii\base\Component->__get('isGuest')
+#17 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#18 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#19 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/home/netkostu/...', Array, NULL)
+#20 /home/netkostu/public_html/backend/views/layouts/main.php(45): yii\base\View->render('header.php', Array)
+#21 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#22 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#23 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(424): yii\base\View->renderFile('/home/netkostu/...', Array, Object(backend\controllers\NewsController))
+#24 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\Controller->renderContent('<div class="new...')
+#25 /home/netkostu/public_html/backend/controllers/NewsController.php(111): yii\base\Controller->render('create', Array)
+#26 [internal function]: backend\controllers\NewsController->actionCreate()
+#27 /home/netkostu/public_html/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#28 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(180): yii\base\InlineAction->runWithParams(Array)
+#29 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#30 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('news/create', Array)
+#31 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#32 /home/netkostu/public_html/backend/web/index.php(17): yii\base\Application->run()
+#33 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryRABn5l8ZitiSRtGp',
+    'CONTENT_LENGTH' => '2178395',
+    'HTTP_COOKIE' => '_csrf-frontend=7d7656d8c81c99c23b694ce19a6327a3ab52c67d55de0bb47bfd47965b3a6979a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22Dz06XHlRdgxzdGsoDoPSf-_y0t4fbnwy%22%3B%7D; advanced-frontend=c31c94467223344f6caae638dda9f969; _identity-backend=3847c13d3dceeb50c46a51a1cefd40af810337288302891033642a1749dffd72a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22XdInDnS1GwGo7W62k__vZkAvb7y1hZj7%22%2C2592000%5D%22%3B%7D; _csrf-backend=da7ff1916de6b8a6008c127ef209e77171f704070ac348de0a7750b75699a9c4a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22HfHpoXwEwtlsgr1FLWISMzXYN1EfnY9s%22%3B%7D; _language=b4a1d83c6024e0e231b10c1aee1a459806ab3c775422a26a07fd10cd7d6598aaa%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; advanced-backend=e4b1f191bda7991df3269046ae9a9944',
+    'HTTP_HOST' => 'netkost.uz',
+    'HTTP_REFERER' => 'https://netkost.uz/admin/news/create',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'netkost.uz',
+    'HTTP_X_FORWARDED_PORT' => '443',
+    'HTTP_X_FORWARDED_PROTO' => 'https',
+    'HTTP_X_FORWARDED_SERVER' => 'netkost.uz',
+    'HTTP_X_REAL_IP' => '::ffff:213.230.103.42',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'https://netkost.uz',
+    'HTTP_SEC_FETCH_SITE' => 'same-origin',
+    'HTTP_SEC_FETCH_MODE' => 'navigate',
+    'HTTP_SEC_FETCH_USER' => '?1',
+    'HTTP_SEC_FETCH_DEST' => 'document',
+    'REDIRECT_REDIRECT_UNIQUE_ID' => 'X6mc6ideCQPD778T-oH4fAAAAFY',
+    'REDIRECT_REDIRECT_HTTPS' => 'on',
+    'REDIRECT_REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'X6mc6ideCQPD778T-oH4fAAAAFY',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'X6mc6ideCQPD778T-oH4fAAAAFY',
+    'HTTPS' => 'on',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'netkost.uz',
+    'SERVER_ADDR' => '83.69.139.168',
+    'SERVER_PORT' => '443',
+    'REMOTE_ADDR' => '213.230.103.42',
+    'DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'REQUEST_SCHEME' => 'https',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'SERVER_ADMIN' => 'webmaster@netkost.uz',
+    'SCRIPT_FILENAME' => '/home/netkostu/public_html/backend/web/index.php',
+    'REMOTE_PORT' => '62400',
+    'REDIRECT_URL' => '/backend/web/news/create',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/news/create',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1604951274.120121,
+    'REQUEST_TIME' => 1604951274,
+]
+[10-Nov-2020 00:49:29 Asia/Tashkent] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/NewsController.php on line 81. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_name(): Cannot change session name when headers already sent in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php:326
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_name():...', '/home/netkostu/...', 326, Array)
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php(326): session_name('advanced-backen...')
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(180): yii\web\Session->setName('advanced-backen...')
+#3 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(558): yii\base\Component->__set('name', 'advanced-backen...')
+#4 /home/netkostu/public_html/vendor/yiisoft/yii2/base/BaseObject.php(107): yii\BaseYii::configure(Object(yii\web\Session), Array)
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#7 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\web\\Session', Array, Array)
+#8 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\web\\Session', Array, Array)
+#9 /home/netkostu/public_html/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#10 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('session', true)
+#11 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(178): yii\base\Module->get('session')
+#12 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(684): yii\web\Application->getSession()
+#13 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(194): yii\web\User->renewAuthStatus()
+#14 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(362): yii\web\User->getIdentity()
+#15 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(139): yii\web\User->getIsGuest()
+#16 /home/netkostu/public_html/backend/views/layouts/header.php(23): yii\base\Component->__get('isGuest')
+#17 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#18 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#19 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/home/netkostu/...', Array, NULL)
+#20 /home/netkostu/public_html/backend/views/layouts/main.php(45): yii\base\View->render('header.php', Array)
+#21 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#22 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#23 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(424): yii\base\View->renderFile('/home/netkostu/...', Array, Object(backend\controllers\NewsController))
+#24 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\Controller->renderContent('<div class="new...')
+#25 /home/netkostu/public_html/backend/controllers/NewsController.php(111): yii\base\Controller->render('create', Array)
+#26 [internal function]: backend\controllers\NewsController->actionCreate()
+#27 /home/netkostu/public_html/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#28 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(180): yii\base\InlineAction->runWithParams(Array)
+#29 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#30 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('news/create', Array)
+#31 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#32 /home/netkostu/public_html/backend/web/index.php(17): yii\base\Application->run()
+#33 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryRABn5l8ZitiSRtGp',
+    'CONTENT_LENGTH' => '2178395',
+    'HTTP_COOKIE' => '_csrf-frontend=7d7656d8c81c99c23b694ce19a6327a3ab52c67d55de0bb47bfd47965b3a6979a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22Dz06XHlRdgxzdGsoDoPSf-_y0t4fbnwy%22%3B%7D; advanced-frontend=c31c94467223344f6caae638dda9f969; _identity-backend=3847c13d3dceeb50c46a51a1cefd40af810337288302891033642a1749dffd72a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22XdInDnS1GwGo7W62k__vZkAvb7y1hZj7%22%2C2592000%5D%22%3B%7D; _csrf-backend=da7ff1916de6b8a6008c127ef209e77171f704070ac348de0a7750b75699a9c4a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22HfHpoXwEwtlsgr1FLWISMzXYN1EfnY9s%22%3B%7D; _language=b4a1d83c6024e0e231b10c1aee1a459806ab3c775422a26a07fd10cd7d6598aaa%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; advanced-backend=e4b1f191bda7991df3269046ae9a9944',
+    'HTTP_HOST' => 'netkost.uz',
+    'HTTP_REFERER' => 'https://netkost.uz/admin/news/create',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'netkost.uz',
+    'HTTP_X_FORWARDED_PORT' => '443',
+    'HTTP_X_FORWARDED_PROTO' => 'https',
+    'HTTP_X_FORWARDED_SERVER' => 'netkost.uz',
+    'HTTP_X_REAL_IP' => '::ffff:213.230.103.42',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'https://netkost.uz',
+    'HTTP_SEC_FETCH_SITE' => 'same-origin',
+    'HTTP_SEC_FETCH_MODE' => 'navigate',
+    'HTTP_SEC_FETCH_USER' => '?1',
+    'HTTP_SEC_FETCH_DEST' => 'document',
+    'REDIRECT_REDIRECT_UNIQUE_ID' => 'X6mdSXc5yMN6b7qoE-UN8QAAAMg',
+    'REDIRECT_REDIRECT_HTTPS' => 'on',
+    'REDIRECT_REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'X6mdSXc5yMN6b7qoE-UN8QAAAMg',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'X6mdSXc5yMN6b7qoE-UN8QAAAMg',
+    'HTTPS' => 'on',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'netkost.uz',
+    'SERVER_ADDR' => '83.69.139.168',
+    'SERVER_PORT' => '443',
+    'REMOTE_ADDR' => '213.230.103.42',
+    'DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'REQUEST_SCHEME' => 'https',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'SERVER_ADMIN' => 'webmaster@netkost.uz',
+    'SCRIPT_FILENAME' => '/home/netkostu/public_html/backend/web/index.php',
+    'REMOTE_PORT' => '6770',
+    'REDIRECT_URL' => '/backend/web/news/create',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/news/create',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1604951369.669968,
+    'REQUEST_TIME' => 1604951369,
+]
+[10-Nov-2020 00:50:27 Asia/Tashkent] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/NewsController.php on line 86. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_name(): Cannot change session name when headers already sent in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php:326
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_name():...', '/home/netkostu/...', 326, Array)
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php(326): session_name('advanced-backen...')
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(180): yii\web\Session->setName('advanced-backen...')
+#3 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(558): yii\base\Component->__set('name', 'advanced-backen...')
+#4 /home/netkostu/public_html/vendor/yiisoft/yii2/base/BaseObject.php(107): yii\BaseYii::configure(Object(yii\web\Session), Array)
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#7 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\web\\Session', Array, Array)
+#8 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\web\\Session', Array, Array)
+#9 /home/netkostu/public_html/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#10 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('session', true)
+#11 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(178): yii\base\Module->get('session')
+#12 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(684): yii\web\Application->getSession()
+#13 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(194): yii\web\User->renewAuthStatus()
+#14 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(362): yii\web\User->getIdentity()
+#15 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(139): yii\web\User->getIsGuest()
+#16 /home/netkostu/public_html/backend/views/layouts/header.php(23): yii\base\Component->__get('isGuest')
+#17 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#18 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#19 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/home/netkostu/...', Array, NULL)
+#20 /home/netkostu/public_html/backend/views/layouts/main.php(45): yii\base\View->render('header.php', Array)
+#21 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#22 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#23 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(424): yii\base\View->renderFile('/home/netkostu/...', Array, Object(backend\controllers\NewsController))
+#24 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\Controller->renderContent('<div class="new...')
+#25 /home/netkostu/public_html/backend/controllers/NewsController.php(111): yii\base\Controller->render('create', Array)
+#26 [internal function]: backend\controllers\NewsController->actionCreate()
+#27 /home/netkostu/public_html/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#28 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(180): yii\base\InlineAction->runWithParams(Array)
+#29 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#30 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('news/create', Array)
+#31 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#32 /home/netkostu/public_html/backend/web/index.php(17): yii\base\Application->run()
+#33 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryRABn5l8ZitiSRtGp',
+    'CONTENT_LENGTH' => '2178395',
+    'HTTP_COOKIE' => '_csrf-frontend=7d7656d8c81c99c23b694ce19a6327a3ab52c67d55de0bb47bfd47965b3a6979a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22Dz06XHlRdgxzdGsoDoPSf-_y0t4fbnwy%22%3B%7D; advanced-frontend=c31c94467223344f6caae638dda9f969; _identity-backend=3847c13d3dceeb50c46a51a1cefd40af810337288302891033642a1749dffd72a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22XdInDnS1GwGo7W62k__vZkAvb7y1hZj7%22%2C2592000%5D%22%3B%7D; _csrf-backend=da7ff1916de6b8a6008c127ef209e77171f704070ac348de0a7750b75699a9c4a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22HfHpoXwEwtlsgr1FLWISMzXYN1EfnY9s%22%3B%7D; _language=b4a1d83c6024e0e231b10c1aee1a459806ab3c775422a26a07fd10cd7d6598aaa%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; advanced-backend=e4b1f191bda7991df3269046ae9a9944',
+    'HTTP_HOST' => 'netkost.uz',
+    'HTTP_REFERER' => 'https://netkost.uz/admin/news/create',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'netkost.uz',
+    'HTTP_X_FORWARDED_PORT' => '443',
+    'HTTP_X_FORWARDED_PROTO' => 'https',
+    'HTTP_X_FORWARDED_SERVER' => 'netkost.uz',
+    'HTTP_X_REAL_IP' => '::ffff:213.230.103.42',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'https://netkost.uz',
+    'HTTP_SEC_FETCH_SITE' => 'same-origin',
+    'HTTP_SEC_FETCH_MODE' => 'navigate',
+    'HTTP_SEC_FETCH_USER' => '?1',
+    'HTTP_SEC_FETCH_DEST' => 'document',
+    'REDIRECT_REDIRECT_UNIQUE_ID' => 'X6mdgydeCQPD778T-oECAwAAAFc',
+    'REDIRECT_REDIRECT_HTTPS' => 'on',
+    'REDIRECT_REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'X6mdgydeCQPD778T-oECAwAAAFc',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'X6mdgydeCQPD778T-oECAwAAAFc',
+    'HTTPS' => 'on',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'netkost.uz',
+    'SERVER_ADDR' => '83.69.139.168',
+    'SERVER_PORT' => '443',
+    'REMOTE_ADDR' => '213.230.103.42',
+    'DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'REQUEST_SCHEME' => 'https',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'SERVER_ADMIN' => 'webmaster@netkost.uz',
+    'SCRIPT_FILENAME' => '/home/netkostu/public_html/backend/web/index.php',
+    'REMOTE_PORT' => '12666',
+    'REDIRECT_URL' => '/backend/web/news/create',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/news/create',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1604951427.115664,
+    'REQUEST_TIME' => 1604951427,
+]
+[10-Nov-2020 01:08:00 Asia/Tashkent] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/NewsController.php on line 86. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_name(): Cannot change session name when headers already sent in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php:326
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_name():...', '/home/netkostu/...', 326, Array)
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php(326): session_name('advanced-backen...')
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(180): yii\web\Session->setName('advanced-backen...')
+#3 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(558): yii\base\Component->__set('name', 'advanced-backen...')
+#4 /home/netkostu/public_html/vendor/yiisoft/yii2/base/BaseObject.php(107): yii\BaseYii::configure(Object(yii\web\Session), Array)
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#7 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\web\\Session', Array, Array)
+#8 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\web\\Session', Array, Array)
+#9 /home/netkostu/public_html/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#10 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('session', true)
+#11 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(178): yii\base\Module->get('session')
+#12 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(684): yii\web\Application->getSession()
+#13 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(194): yii\web\User->renewAuthStatus()
+#14 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(362): yii\web\User->getIdentity()
+#15 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(139): yii\web\User->getIsGuest()
+#16 /home/netkostu/public_html/backend/views/layouts/header.php(23): yii\base\Component->__get('isGuest')
+#17 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#18 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#19 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/home/netkostu/...', Array, NULL)
+#20 /home/netkostu/public_html/backend/views/layouts/main.php(45): yii\base\View->render('header.php', Array)
+#21 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#22 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#23 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(424): yii\base\View->renderFile('/home/netkostu/...', Array, Object(backend\controllers\NewsController))
+#24 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\Controller->renderContent('<div class="new...')
+#25 /home/netkostu/public_html/backend/controllers/NewsController.php(111): yii\base\Controller->render('create', Array)
+#26 [internal function]: backend\controllers\NewsController->actionCreate()
+#27 /home/netkostu/public_html/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#28 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(180): yii\base\InlineAction->runWithParams(Array)
+#29 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#30 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('news/create', Array)
+#31 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#32 /home/netkostu/public_html/backend/web/index.php(17): yii\base\Application->run()
+#33 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundarywE24D7mmBOifhZmH',
+    'CONTENT_LENGTH' => '2178372',
+    'HTTP_COOKIE' => '_csrf-frontend=7d7656d8c81c99c23b694ce19a6327a3ab52c67d55de0bb47bfd47965b3a6979a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22Dz06XHlRdgxzdGsoDoPSf-_y0t4fbnwy%22%3B%7D; advanced-frontend=c31c94467223344f6caae638dda9f969; _identity-backend=3847c13d3dceeb50c46a51a1cefd40af810337288302891033642a1749dffd72a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22XdInDnS1GwGo7W62k__vZkAvb7y1hZj7%22%2C2592000%5D%22%3B%7D; _csrf-backend=da7ff1916de6b8a6008c127ef209e77171f704070ac348de0a7750b75699a9c4a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22HfHpoXwEwtlsgr1FLWISMzXYN1EfnY9s%22%3B%7D; _language=b4a1d83c6024e0e231b10c1aee1a459806ab3c775422a26a07fd10cd7d6598aaa%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; advanced-backend=e4b1f191bda7991df3269046ae9a9944',
+    'HTTP_HOST' => 'netkost.uz',
+    'HTTP_REFERER' => 'https://netkost.uz/admin/news/create',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'netkost.uz',
+    'HTTP_X_FORWARDED_PORT' => '443',
+    'HTTP_X_FORWARDED_PROTO' => 'https',
+    'HTTP_X_FORWARDED_SERVER' => 'netkost.uz',
+    'HTTP_X_REAL_IP' => '::ffff:213.230.103.42',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'https://netkost.uz',
+    'HTTP_SEC_FETCH_SITE' => 'same-origin',
+    'HTTP_SEC_FETCH_MODE' => 'navigate',
+    'HTTP_SEC_FETCH_USER' => '?1',
+    'HTTP_SEC_FETCH_DEST' => 'document',
+    'REDIRECT_REDIRECT_UNIQUE_ID' => 'X6mhoJckCBB4nGOAl@1UeQAAAFU',
+    'REDIRECT_REDIRECT_HTTPS' => 'on',
+    'REDIRECT_REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'X6mhoJckCBB4nGOAl@1UeQAAAFU',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'X6mhoJckCBB4nGOAl@1UeQAAAFU',
+    'HTTPS' => 'on',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'netkost.uz',
+    'SERVER_ADDR' => '83.69.139.168',
+    'SERVER_PORT' => '443',
+    'REMOTE_ADDR' => '213.230.103.42',
+    'DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'REQUEST_SCHEME' => 'https',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'SERVER_ADMIN' => 'webmaster@netkost.uz',
+    'SCRIPT_FILENAME' => '/home/netkostu/public_html/backend/web/index.php',
+    'REMOTE_PORT' => '38884',
+    'REDIRECT_URL' => '/backend/web/news/create',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/news/create',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1604952480.146492,
+    'REQUEST_TIME' => 1604952480,
+]
+[10-Nov-2020 01:09:35 Asia/Tashkent] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/NewsController.php on line 86. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_name(): Cannot change session name when headers already sent in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php:326
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_name():...', '/home/netkostu/...', 326, Array)
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php(326): session_name('advanced-backen...')
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(180): yii\web\Session->setName('advanced-backen...')
+#3 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(558): yii\base\Component->__set('name', 'advanced-backen...')
+#4 /home/netkostu/public_html/vendor/yiisoft/yii2/base/BaseObject.php(107): yii\BaseYii::configure(Object(yii\web\Session), Array)
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#7 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\web\\Session', Array, Array)
+#8 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\web\\Session', Array, Array)
+#9 /home/netkostu/public_html/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#10 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('session', true)
+#11 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(178): yii\base\Module->get('session')
+#12 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(684): yii\web\Application->getSession()
+#13 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(194): yii\web\User->renewAuthStatus()
+#14 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(362): yii\web\User->getIdentity()
+#15 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(139): yii\web\User->getIsGuest()
+#16 /home/netkostu/public_html/backend/views/layouts/header.php(23): yii\base\Component->__get('isGuest')
+#17 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#18 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#19 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/home/netkostu/...', Array, NULL)
+#20 /home/netkostu/public_html/backend/views/layouts/main.php(45): yii\base\View->render('header.php', Array)
+#21 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#22 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#23 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(424): yii\base\View->renderFile('/home/netkostu/...', Array, Object(backend\controllers\NewsController))
+#24 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\Controller->renderContent('<div class="new...')
+#25 /home/netkostu/public_html/backend/controllers/NewsController.php(111): yii\base\Controller->render('create', Array)
+#26 [internal function]: backend\controllers\NewsController->actionCreate()
+#27 /home/netkostu/public_html/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#28 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(180): yii\base\InlineAction->runWithParams(Array)
+#29 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#30 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('news/create', Array)
+#31 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#32 /home/netkostu/public_html/backend/web/index.php(17): yii\base\Application->run()
+#33 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundarywE24D7mmBOifhZmH',
+    'CONTENT_LENGTH' => '2178372',
+    'HTTP_COOKIE' => '_csrf-frontend=7d7656d8c81c99c23b694ce19a6327a3ab52c67d55de0bb47bfd47965b3a6979a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22Dz06XHlRdgxzdGsoDoPSf-_y0t4fbnwy%22%3B%7D; advanced-frontend=c31c94467223344f6caae638dda9f969; _identity-backend=3847c13d3dceeb50c46a51a1cefd40af810337288302891033642a1749dffd72a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22XdInDnS1GwGo7W62k__vZkAvb7y1hZj7%22%2C2592000%5D%22%3B%7D; _csrf-backend=da7ff1916de6b8a6008c127ef209e77171f704070ac348de0a7750b75699a9c4a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22HfHpoXwEwtlsgr1FLWISMzXYN1EfnY9s%22%3B%7D; _language=b4a1d83c6024e0e231b10c1aee1a459806ab3c775422a26a07fd10cd7d6598aaa%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; advanced-backend=e4b1f191bda7991df3269046ae9a9944',
+    'HTTP_HOST' => 'netkost.uz',
+    'HTTP_REFERER' => 'https://netkost.uz/admin/news/create',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'netkost.uz',
+    'HTTP_X_FORWARDED_PORT' => '443',
+    'HTTP_X_FORWARDED_PROTO' => 'https',
+    'HTTP_X_FORWARDED_SERVER' => 'netkost.uz',
+    'HTTP_X_REAL_IP' => '::ffff:213.230.103.42',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'https://netkost.uz',
+    'HTTP_SEC_FETCH_SITE' => 'same-origin',
+    'HTTP_SEC_FETCH_MODE' => 'navigate',
+    'HTTP_SEC_FETCH_USER' => '?1',
+    'HTTP_SEC_FETCH_DEST' => 'document',
+    'REDIRECT_REDIRECT_UNIQUE_ID' => 'X6mh-zwooIFlJDvS882BFwAAABM',
+    'REDIRECT_REDIRECT_HTTPS' => 'on',
+    'REDIRECT_REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'X6mh-zwooIFlJDvS882BFwAAABM',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'X6mh-zwooIFlJDvS882BFwAAABM',
+    'HTTPS' => 'on',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'netkost.uz',
+    'SERVER_ADDR' => '83.69.139.168',
+    'SERVER_PORT' => '443',
+    'REMOTE_ADDR' => '213.230.103.42',
+    'DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'REQUEST_SCHEME' => 'https',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'SERVER_ADMIN' => 'webmaster@netkost.uz',
+    'SCRIPT_FILENAME' => '/home/netkostu/public_html/backend/web/index.php',
+    'REMOTE_PORT' => '48048',
+    'REDIRECT_URL' => '/backend/web/news/create',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/news/create',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1604952575.475011,
+    'REQUEST_TIME' => 1604952575,
+]
+[10-Nov-2020 22:38:44 Asia/Tashkent] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/NewsController.php on line 86. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_name(): Cannot change session name when headers already sent in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php:326
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_name():...', '/home/netkostu/...', 326, Array)
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php(326): session_name('advanced-backen...')
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(180): yii\web\Session->setName('advanced-backen...')
+#3 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(558): yii\base\Component->__set('name', 'advanced-backen...')
+#4 /home/netkostu/public_html/vendor/yiisoft/yii2/base/BaseObject.php(107): yii\BaseYii::configure(Object(yii\web\Session), Array)
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#7 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\web\\Session', Array, Array)
+#8 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\web\\Session', Array, Array)
+#9 /home/netkostu/public_html/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#10 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('session', true)
+#11 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(178): yii\base\Module->get('session')
+#12 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(684): yii\web\Application->getSession()
+#13 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(194): yii\web\User->renewAuthStatus()
+#14 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(362): yii\web\User->getIdentity()
+#15 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(139): yii\web\User->getIsGuest()
+#16 /home/netkostu/public_html/backend/views/layouts/header.php(23): yii\base\Component->__get('isGuest')
+#17 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#18 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#19 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/home/netkostu/...', Array, NULL)
+#20 /home/netkostu/public_html/backend/views/layouts/main.php(45): yii\base\View->render('header.php', Array)
+#21 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#22 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#23 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(424): yii\base\View->renderFile('/home/netkostu/...', Array, Object(backend\controllers\NewsController))
+#24 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\Controller->renderContent('<div class="new...')
+#25 /home/netkostu/public_html/backend/controllers/NewsController.php(111): yii\base\Controller->render('create', Array)
+#26 [internal function]: backend\controllers\NewsController->actionCreate()
+#27 /home/netkostu/public_html/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#28 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(180): yii\base\InlineAction->runWithParams(Array)
+#29 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#30 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('news/create', Array)
+#31 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#32 /home/netkostu/public_html/backend/web/index.php(17): yii\base\Application->run()
+#33 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryJVJxXp8ZJNylrdP3',
+    'CONTENT_LENGTH' => '2178379',
+    'HTTP_COOKIE' => '_csrf-frontend=7d7656d8c81c99c23b694ce19a6327a3ab52c67d55de0bb47bfd47965b3a6979a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22Dz06XHlRdgxzdGsoDoPSf-_y0t4fbnwy%22%3B%7D; advanced-frontend=c31c94467223344f6caae638dda9f969; _identity-backend=3847c13d3dceeb50c46a51a1cefd40af810337288302891033642a1749dffd72a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22XdInDnS1GwGo7W62k__vZkAvb7y1hZj7%22%2C2592000%5D%22%3B%7D; _csrf-backend=da7ff1916de6b8a6008c127ef209e77171f704070ac348de0a7750b75699a9c4a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22HfHpoXwEwtlsgr1FLWISMzXYN1EfnY9s%22%3B%7D; _language=b4a1d83c6024e0e231b10c1aee1a459806ab3c775422a26a07fd10cd7d6598aaa%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; advanced-backend=ae6ae8dfd11922b102b7f275263808d0',
+    'HTTP_HOST' => 'netkost.uz',
+    'HTTP_REFERER' => 'https://netkost.uz/admin/news/create',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'netkost.uz',
+    'HTTP_X_FORWARDED_PORT' => '443',
+    'HTTP_X_FORWARDED_PROTO' => 'https',
+    'HTTP_X_FORWARDED_SERVER' => 'netkost.uz',
+    'HTTP_X_REAL_IP' => '::ffff:213.230.100.120',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'https://netkost.uz',
+    'HTTP_SEC_FETCH_SITE' => 'same-origin',
+    'HTTP_SEC_FETCH_MODE' => 'navigate',
+    'HTTP_SEC_FETCH_USER' => '?1',
+    'HTTP_SEC_FETCH_DEST' => 'document',
+    'REDIRECT_REDIRECT_UNIQUE_ID' => 'X6rQJPbq6pTbCGESvYI@aAAAAkc',
+    'REDIRECT_REDIRECT_HTTPS' => 'on',
+    'REDIRECT_REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'X6rQJPbq6pTbCGESvYI@aAAAAkc',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'X6rQJPbq6pTbCGESvYI@aAAAAkc',
+    'HTTPS' => 'on',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'netkost.uz',
+    'SERVER_ADDR' => '83.69.139.168',
+    'SERVER_PORT' => '443',
+    'REMOTE_ADDR' => '213.230.100.120',
+    'DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'REQUEST_SCHEME' => 'https',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'SERVER_ADMIN' => 'webmaster@netkost.uz',
+    'SCRIPT_FILENAME' => '/home/netkostu/public_html/backend/web/index.php',
+    'REMOTE_PORT' => '21776',
+    'REDIRECT_URL' => '/backend/web/news/create',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/news/create',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1605029924.036371,
+    'REQUEST_TIME' => 1605029924,
+]
+[11-Nov-2020 13:19:58 Asia/Tashkent] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/netkostu/public_html/backend/controllers/NewsController.php on line 86. in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: session_name(): Cannot change session name when headers already sent in /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php:326
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_name():...', '/home/netkostu/...', 326, Array)
+#1 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Session.php(326): session_name('advanced-backen...')
+#2 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Component.php(180): yii\web\Session->setName('advanced-backen...')
+#3 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(558): yii\base\Component->__set('name', 'advanced-backen...')
+#4 /home/netkostu/public_html/vendor/yiisoft/yii2/base/BaseObject.php(107): yii\BaseYii::configure(Object(yii\web\Session), Array)
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#7 /home/netkostu/public_html/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\web\\Session', Array, Array)
+#8 /home/netkostu/public_html/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\web\\Session', Array, Array)
+#9 /home/netkostu/public_html/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#10 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('session', true)
+#11 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(178): yii\base\Module->get('session')
+#12 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(684): yii\web\Application->getSession()
+#13 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(194): yii\web\User->renewAuthStatus()
+#14 /home/netkostu/public_html/vendor/yiisoft/yii2/web/User.php(372): yii\web\User->getIdentity()
+#15 /home/netkostu/public_html/backend/views/layouts/header.php(6): yii\web\User->getId()
+#16 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#17 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#18 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/home/netkostu/...', Array, NULL)
+#19 /home/netkostu/public_html/backend/views/layouts/main.php(45): yii\base\View->render('header.php', Array)
+#20 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(348): require('/home/netkostu/...')
+#21 /home/netkostu/public_html/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/home/netkostu/...', Array)
+#22 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(424): yii\base\View->renderFile('/home/netkostu/...', Array, Object(backend\controllers\NewsController))
+#23 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\Controller->renderContent('<div class="new...')
+#24 /home/netkostu/public_html/backend/controllers/NewsController.php(111): yii\base\Controller->render('create', Array)
+#25 [internal function]: backend\controllers\NewsController->actionCreate()
+#26 /home/netkostu/public_html/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#27 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Controller.php(180): yii\base\InlineAction->runWithParams(Array)
+#28 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('create', Array)
+#29 /home/netkostu/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('news/create', Array)
+#30 /home/netkostu/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#31 /home/netkostu/public_html/backend/web/index.php(17): yii\base\Application->run()
+#32 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_LANGUAGE' => 'en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryov4rDsArUwVHbAI9',
+    'CONTENT_LENGTH' => '3792899',
+    'HTTP_COOKIE' => '_csrf-frontend=f16db6192c28deeff45c32b9d72903edf2086417973ab78643e2ff8c8391a0e5a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22Ir22VTUuNBynUmUa4gseaSr4voli38pK%22%3B%7D; advanced-frontend=cd40d0ece99231008bf3067ed54c43fb; _language=3a2a20c49bc79e55c92dd6d4aec62c90e6a69732be0d633705df0faa718575c7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22ru%22%3B%7D; _identity-backend=3847c13d3dceeb50c46a51a1cefd40af810337288302891033642a1749dffd72a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22XdInDnS1GwGo7W62k__vZkAvb7y1hZj7%22%2C2592000%5D%22%3B%7D; _csrf-backend=c2183d1dcbcc6cd75873d5cdcfb35fe048d0584b2b0b0a50d6de0bb15edbdaf3a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22Zjf4YB-2huKAmrp3u2sTdOtjIk-BCCbI%22%3B%7D; advanced-backend=0c92a06c81072b1dd2ec7b2fa53de82c',
+    'HTTP_HOST' => 'netkost.uz',
+    'HTTP_REFERER' => 'http://netkost.uz/admin/news/create',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_HOST' => 'netkost.uz',
+    'HTTP_X_FORWARDED_PORT' => '80',
+    'HTTP_X_FORWARDED_PROTO' => 'http',
+    'HTTP_X_FORWARDED_SERVER' => 'netkost.uz',
+    'HTTP_X_REAL_IP' => '::ffff:213.230.100.120',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_ORIGIN' => 'http://netkost.uz',
+    'REDIRECT_REDIRECT_UNIQUE_ID' => 'X6uersM1E7LwmLYk0vC8owAAAQs',
+    'REDIRECT_REDIRECT_SCRIPT_URL' => '/admin/news/create',
+    'REDIRECT_REDIRECT_SCRIPT_URI' => 'http://netkost.uz/admin/news/create',
+    'REDIRECT_REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'X6uersM1E7LwmLYk0vC8owAAAQs',
+    'REDIRECT_SCRIPT_URL' => '/admin/news/create',
+    'REDIRECT_SCRIPT_URI' => 'http://netkost.uz/admin/news/create',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'X6uersM1E7LwmLYk0vC8owAAAQs',
+    'SCRIPT_URL' => '/admin/news/create',
+    'SCRIPT_URI' => 'http://netkost.uz/admin/news/create',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'netkost.uz',
+    'SERVER_ADDR' => '83.69.139.168',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '213.230.100.120',
+    'DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/netkostu/public_html',
+    'SERVER_ADMIN' => 'webmaster@netkost.uz',
+    'SCRIPT_FILENAME' => '/home/netkostu/public_html/backend/web/index.php',
+    'REMOTE_PORT' => '40544',
+    'REDIRECT_URL' => '/backend/web/news/create',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/news/create',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1605082798.751686,
+    'REQUEST_TIME' => 1605082798,
+]

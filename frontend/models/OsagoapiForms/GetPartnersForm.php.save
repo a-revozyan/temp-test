@@ -1,0 +1,95 @@
+<?php
+
+namespace frontend\models\OsagoapiForms;
+
+use common\models\NumberDrivers;
+use common\models\Osago;
+use common\models\Partner;
+use common\models\Period;
+
+class GetPartnersForm extends \yii\base\Model
+{
+    public $autonumber;
+    public $number_drivers_id;
+    public $period_id;
+    public $partner_ability;
+
+    public function rules()
+    {
+        return [
+            [['autonumber', 'number_drivers_id', 'period_id'], 'required'],
+            [['number_drivers_id'], 'integer'],
+            [['partner_ability'], 'integer'],
+            [['partner_ability'], 'in', 'range' => Osago::PARTNER_ABILITY],
+            [['autonumber'], 'string', 'max' => 255],
+            [['number_drivers_id'], 'exist', 'skipOnError' => true, 'targetClass' => NumberDrivers::className(), 'targetAttribute' => ['number_drivers_id' => 'id']],
+            [['period_id'], 'exist', 'skipOnError' => true, 'targetClass' => Period::className(), 'targetAttribute' => ['period_id' => 'id']],
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [];
+    }
+
+    public function save()
+    {
+        $temp_osago = new Osago();
+        $temp_osago->autonumber = $this->autonumber;
+        $temp_osago->number_drivers_id = $this->number_drivers_id;
+        $temp_osago->period_id = $this->period_id;
+
+        $temp_osago->region_id = Osago::REGION_ANOTHER_ID;
+        if (in_array(substr($this->autonumber, 0, 2), Osago::AUTONUMBER_TASHKENT_CODES))
+            $temp_osago->region_id = Osago::REGION_TASHKENT_ID;
+
+        $temp_osago->is_juridic = $temp_osago->getIsJuridic();
+
+        if ($temp_osago->is_juridic and $temp_osago->number_drivers_id == Osago::TILL_5_NUMBER_DRIVERS_ID)
+            return [];
+
+        if ($temp_osago->region_id == Osago::REGION_TASHKENT_ID and $temp_osago->number_drivers_id == Osago::TILL_5_NUMBER_DRIVERS_ID and $temp_osago->period_id != Osago::DEFAULT_PERIOD_ID)
+            return [];
+
+        if ($temp_osago->region_id == Osago::REGION_TASHKENT_ID and $temp_osago->number_drivers_id == Osago::TILL_5_NUMBER_DRIVERS_ID)
+            return $this->getPartnersByIds([Partner::PARTNER['neo'], Partner::PARTNER['kapital']], $temp_osago);
+
+        return  $this->getPartnersByIds([Partner::PARTNER['neo'], Partner::PARTNER['gross'], Partner::PARTNER['insonline'], Partner::PARTNER['kapital']], $temp_osago);
+    }
+
+    public function getPartnersByIds($ids, $temp_osago): array
+    {
+        if ($this->partner_ability == Osago::PARTNER_ABILITY['without_kapital'])
+            $ids = array_diff($ids, [Partner::PARTNER['kapital']]);
+
+        if ($this->partner_ability == Osago::PARTNER_ABILITY['without_gross'])
+            $ids = array_diff($ids, [Partner::PARTNER['gross']]);
+
+        if ($this->partner_ability == Osago::PARTNER_ABILITY['without_gross_and_kapital'])
+            $ids = array_diff($ids, [Partner::PARTNER['gross'], Partner::PARTNER['kapital']]);
+
+        if ($this->period_id == Osago::PERIOD_6_ID)
+            $ids = array_diff($ids, [Partner::PARTNER['kapital'], Partner::PARTNER['insonline']]);
+
+        $partners = Partner::find()->where(['id' => $ids])->all();
+        usort($partners, function ($a, $b) use ($ids){
+            return array_search($a->id, $ids) - array_search($b->id, $ids);
+        });
+        $_partners = [];
+        foreach ($partners as $partner) {
+            $_partner = $partner->getForIdNameAccidentArr();
+            if ($temp_osago->is_juridic)
+                $_partner['accident'] = null;
+
+            if ($this->number_drivers_id == Osago::TILL_5_NUMBER_DRIVERS_ID and $partner->id != Partner::PARTNER['kapital'])
+                $_partner['accident'] = null;
+
+            if (!($temp_osago->region_id == Osago::REGION_TASHKENT_ID and $this->number_drivers_id == Osago::WITH_RESTRICTION_NUMBER_DRIVERS_ID) and $partner->id == Partner::PARTNER['kapital'] and !empty($_partner['accident']))
+                $_partner['accident'] = null;
+
+            $_partners[] = $_partner;
+        }
+
+        return $_partners;
+    }
+}
